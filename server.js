@@ -22,6 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 // Serve static files (HTML, CSS, JS, images)
 app.use(express.static(__dirname));
 
+// Root route fallback
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Routes
 
 // Health check
